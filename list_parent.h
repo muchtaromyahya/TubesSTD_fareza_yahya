@@ -3,7 +3,7 @@
 
 /** parent = double circular list yang isinya berupa nama makanan
 
-    - edited 28/3/2018 : 1. masih sesuai yang aku fork dari pak andit, berupa single linked list.
+    - edited 28/3/2018 : 1. masih sesuai yang aku fork dari pak andit, berupa single circular linked list.
                          2. Jangan lupa ganti yang di list_parent.cpp ke double circular
 
     *nB : tambahin log pengeditan yang lain abis lu ngedit
