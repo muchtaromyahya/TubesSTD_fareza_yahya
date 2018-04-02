@@ -13,27 +13,36 @@
 using namespace std;
 
 #define first(L) L.first
+#define last(L) L.last
 #define next(P) P->next
 #define info(P) P->info
+#define prev(P) P->prev
 
 
-typedef int /** tipe data int diganti ke infotype */ infotype_parent;
+//typedef int /** tipe data int diganti ke infotype */ infotype_parent;
 
 /** tambahin infotype buat barangnya : id, nama barang, stok, dll(kalau mau nambahin silahkan) */
 
 //tambahin disini struct infotype nya
 
 /** ========================================================================================*/
+struct infotype_parent {
+    int id;
+    string nama_brg;
+    int stok;
+};
 
 typedef struct elmlist_parent *address_parent;
 
 struct elmlist_parent {
     infotype_parent info;
     address_parent next;
+    address_parent prev;
 };
 
 struct List_parent {
     address_parent first;
+    address_parent last;
 };
 
 
