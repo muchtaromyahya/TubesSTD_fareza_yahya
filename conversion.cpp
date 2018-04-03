@@ -6,7 +6,7 @@ string IntToStr(a){
 }
 
 int StrToInt(b){
-    number=0;
+    int number;
     stringstream convert(b);
     convert>>number;
     return number;

@@ -1,4 +1,4 @@
-#include <iostream>
+#include <conio.h>
 #include "operasiProgram.h"
 
 using namespace std;

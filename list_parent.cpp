@@ -53,7 +53,7 @@ void insertFirst(List_parent &L, address_parent P) {
 
 void insertAfter(List_parent &L, address_parent Prec, address_parent P){
     if(Prec==NULL){
-        cout<<"Prec tidak ada"<<endl;
+        return;
     }else{
         next(P)=next(Prec);
         prev(next(P))=P;
@@ -122,9 +122,19 @@ void deleteLast(List_parent &L, address_parent &P){
 
 void deleteAfter(List_parent &L, address_parent Prec, address_parent &P){
     if(Prec==NULL){
-        cout<<"tdk ada yg dihapus"<<endl;
+        return;
     }else{
-
+        if(Prec==first(L)){
+            deleteFirst(L,P);
+        }else if(Prec==last(L)){
+            deleteLast(L,P);
+        }else{
+            P=Prec;
+            next(prev(P))=next(P);
+            prev(next(P))=prev(P);
+            prev(P)=NULL;
+            next(P)=NULL;
+        }
     }
 }
 
@@ -150,7 +160,7 @@ address_parent findElm(List_parent L, infotype_parent x) {
     */
     address_parent P = first(L);
     do {
-        if(info(P) == x) {
+        if(info(P).nama_brg == x.nama_brg) {
             return P;
         }
         P = next(P);
