@@ -23,9 +23,8 @@ void mainmenu()
         cout<<"=  4. Cari barang                                      ="<<endl;
         cout<<"=  5. Lihat barang                                     ="<<endl;
         cout<<"=  6. Lihat barang sesuai kategori                     ="<<endl;
-        cout<<"=  7. Cek banyak stok barang                           ="<<endl;
-        cout<<"=  8. Hapus barang                                     ="<<endl;
-        cout<<"=  9. Hapus kategori                                   ="<<endl;
+        cout<<"=  7. Hapus barang                                     ="<<endl;
+        cout<<"=  8. Hapus kategori                                   ="<<endl;
         cout<<"=  0. Keluar                                           ="<<endl;
         cout<<"========================================================"<<endl;
         cout<<" Pilihan (ketik angka saja): "<<endl;

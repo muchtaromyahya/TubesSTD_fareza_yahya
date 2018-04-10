@@ -36,17 +36,19 @@ void tambahBarang(List_parent &LP, List_relasi &LR, List_child &LC)
                 address_child alamat_child=findElm(L,x2);                //Cek apakah kategori dari inputan ada atau gak di list
                 if(alamat_child!=NULL)
                 {
-                    if(x.id<100)
+                    if(x.id<100&&x.stok<=50)
                     {
                         x.id=x.id+1;
                     }
                     else
                     {
                         cout<<"barang penuh"<<endl;
+                        return;
                     }
                     address_parent P=alokasi(x);
                     address_relasi Q=alokasi(P,alamat_child);
                     InsertAndsort_parent(L,P);
+                    //
                 }
                 else                                                    //jika kategori di child tidak ada yang sesuai dengan kategori inputan
                 {
@@ -65,6 +67,7 @@ void tambahBarang(List_parent &LP, List_relasi &LR, List_child &LC)
             }
         }else{                                                 //ditemukan nama barang yang sama
             cout<<"Maaf barang tersebut sudah ada"<<endl;
+            return;
         }
     }else{                   //jika parent kosong
         if(first(LC)!=NULL)                                          //Cek child kosong ato gak
@@ -72,15 +75,17 @@ void tambahBarang(List_parent &LP, List_relasi &LR, List_child &LC)
                 address_child alamat_child=findElm(L,x2);                //Cek apakah kategori dari inputan ada atau gak di list
                 if(alamat_child!=NULL)
                 {
-                    if(x.id<100)
+                    if(x.id<100&&x.stok<=50)
                     {
                         x.id=x.id+1;
                     }
                     else
                     {
                         cout<<"barang penuh"<<endl;
+                        return;
                     }
                     address_parent P=alokasi(x);
+
                     InsertAndsort_parent(L,P);
                 }
                 else
@@ -100,4 +105,48 @@ void tambahBarang(List_parent &LP, List_relasi &LR, List_child &LC)
             }
     }
 
+}
+
+/**===========================================================================================================================================*/
+void tambahKategori(List_child &LC){
+    /** tambahkan disini */
+}
+
+/**===========================================================================================================================================*/
+
+void BarangKeluar(List_parent &LP,List_relasi &LR){
+    infotype_parent a;
+    int Banyak;
+    address_parent P;
+
+    cout<<"============================BarangKeluar================================="<<endl;
+    cout<<"  Masukkan nama barang =                                                ="<<endl;
+    cin>>a.nama_brg;
+    cout<<"  Banyak barang yang dikeluarkan =                                      ="<<endl;
+    cin>>Banyak;
+    cout<<"========================================================================="<<endl;
+
+    address_parent Cari=findElm(LP,a);
+    if(Cari!=NULL){
+        if(Banyak<info(Cari).stok){
+            info(Cari).stok=info(Cari).stok-Banyak;
+            cout<<"Silahkan ambil barang"<<endl;
+            return;
+        }else if(Banyak==info(Cari).stok){
+            address_relasi Q;
+            deleteAfter(LP,Cari,P);
+            address_relasi Cari2=findElm(LR,Cari,/** address child */);
+            deleteAfter(Cari2,Q);
+            dealokasi(P);
+            dealokasi(Q);
+            cout<<"Silahkan ambil barang"<<endl;
+            return;
+        }else{
+            cout<<"Maaf, stok hanya ada 50 buah"<<endl;
+            return;
+        }
+    }else{
+        cout<<"Maaf barang tidak ditemukan"<<endl;
+        return;
+    }
 }

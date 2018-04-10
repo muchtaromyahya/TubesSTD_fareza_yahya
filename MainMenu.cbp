@@ -43,6 +43,8 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="operasiProgram.cpp" />
 		<Unit filename="operasiProgram.h" />
+		<Unit filename="operasi_list.cpp" />
+		<Unit filename="operasi_list.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

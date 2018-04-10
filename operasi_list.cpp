@@ -19,3 +19,7 @@ void InsertAndsort_parent(List_parent &L, address_parent P){
         }
     }
 }
+
+void InsertAndsort_relasi(List_relasi &L, address_relasi P){
+
+}
